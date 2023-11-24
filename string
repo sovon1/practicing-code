@@ -98,3 +98,62 @@ int main()
 }
 
 
+//concatenation without strcat
+#include<stdio.h>
+int main()
+{
+    char str1[50] = "My name is ";
+    char str2[] = "Shohidul islam sovon";
+
+    int i =0 , len =0 , j= 0;
+    while(str1[i]!='\0')
+    {
+
+        i++;
+        len++;
+
+    }
+while(str2[j]!='\0')
+{
+    str1[len+j]=str2[j];
+    j++;
+}
+
+    printf("%s\n",str1);
+
+
+}
+ //comparing string
+
+
+
+#include<stdio.h>
+
+int main()
+{
+    char str1[] = "Shohidul islam sovon";
+    char str2[] = "Shohidul islam sovon";
+    int d = strcmp(str1,str2) ;
+
+    if(d==0)
+        printf("strings are equal");
+    if(d!=0)
+        printf("strings are not equal");
+
+
+}
+
+
+
+//reversing string
+
+#include<stdio.h>
+int main()
+{
+    char str[] = "Shohidul islam sovon" ;
+    printf("str = %s\n",str);
+
+    strrev(str);
+    printf("str = %s\n",str);
+
+}
