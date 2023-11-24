@@ -10,10 +10,6 @@ int main()
 
     printf("full name= %s",s1);
 
-
-
-
-
 }
 
 
@@ -31,12 +27,6 @@ int main()
         i++;
 
     }
-
-
-
-
-
-
 }
 
 
@@ -50,10 +40,6 @@ int main()
 
     int len = strlen(s1);
     printf(" Length  : %d  ",len);
-
-
-
-
 }
 
 
@@ -72,10 +58,43 @@ int main()
     }
     printf("length = %d ",len);
 
+}
 
+#include<stdio.h>
+int main()
+{
+    char source[] = "C programming";
+    char target[20];
 
+    strcpy(target,source);
+    printf("source string = %s\n",source);
+    printf("target string =  %s\n",target);
 
+}
+
+//concatenation using strcat (adding)
+include<stdio.h>
+int main()
+{
+    char str1[] = "My name is ";
+    char str2[] = "Shohidul islam sovon";
+
+                  strcat(str1, str2);
+    printf("%s\n",str1);
+    printf("%s\n",str2);
+
+}
+
+#include<stdio.h>
+int main()
+{
+    char str1[] = "My name is ";
+    //char str2[] = "Shohidul islam sovon";
+
+                  strcat(str1,"Shohidul islam sovon");
+    printf("%s\n",str1);
 
 
 }
+
 
