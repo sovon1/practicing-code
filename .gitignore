@@ -1,52 +1,44 @@
-# Prerequisites
-*.d
+/**
+ * C program to find sum of opposite diagonal elements of a matrix
+ */
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+#include <stdio.h>
 
-# Linker output
-*.ilk
-*.map
-*.exp
+#define SIZE 3 // Matrix size
 
-# Precompiled Headers
-*.gch
-*.pch
+int main()
+{
+    int A[SIZE][SIZE];
+    int row, col, sum = 0;
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+    /* Input elements in matrix from user */
+    printf("Enter elements in matrix of size %dx%d: \n");
+    for(row=0; row<SIZE; row++)
+    {
+        for(col=0; col<SIZE; col++)
+        {
+            scanf("%d", &A[row][col]);
+        }
+    }
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+    /* Find sum of minor diagonal elements */
+    for(row=0; row<SIZE; row++)
+    {
+        for(col=0; col<SIZE; col++)
+        {
+            /*
+             * If it is minor diagonal of matrix
+             * Minor diagonal: i+j == N + 1
+             * Since array elements starts from 0 hence i+j == (N + 1)-2
+             */
+            if(row+col == ((SIZE+1)-2))
+            {
+                sum += A[row][col];
+            }
+        }
+    }
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+    printf("\nSum of minor diagonal elements = %d", sum);
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    return 0;
+}
