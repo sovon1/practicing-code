@@ -331,3 +331,34 @@ The condition `fscanf(file, "%s %d", name, &age) == 2` is used to check if `fsca
 - If `fscanf` encounters an error while reading or reaches the end of the file before reading both items, it returns a value less than `2`.
 
 So, `fscanf(file, "%s %d", name, &age) == 2` checks if `fscanf` successfully read both a string and an integer from the file. If it did, the loop continues; otherwise, it exits. This prevents the program from entering an infinite loop if there are no more items to read in the file.
+
+
+
+
+#include<stdio.h>
+
+int main() {
+    FILE *file;
+    file = fopen("test.txt","r"); // Open file in read mode
+    char name[3000];
+    int age;
+    // why it is to 
+  
+    if (file == NULL) {
+        printf("File wasn't created");
+    } else {
+        printf("File is created\n");
+        while(!feof(file))
+ {
+     // 
+
+        fgets(name, sizeof(name), file); // points to be noted here , in the end era we used file pointer not stdin ,that for input it's for read
+        printf("%s\n",name);
+ }
+
+        fclose(file);
+    }
+
+    return 0;
+}
+
