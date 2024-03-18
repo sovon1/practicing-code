@@ -273,5 +273,61 @@ These examples demonstrate how each function works in the context of file handli
 */
 
 
+#include<stdio.h>
+
+int main() {
+    FILE *file;
+    file = fopen("test.txt","r"); // Open file in read mode
+    char name[3000];
+    int age;
+
+    if (file == NULL) {
+        printf("File wasn't created");
+    } else {
+        printf("File is created\n");
+        while(!feof(file))
+ {
+
+        fgets(name, sizeof(name), file); // points to be noted here , in the end era we used file pointer not stdin ,that for input it's for read
+        printf("%s\n",name);
+ }
+
+        fclose(file);
+    }
+
+    return 0;
+}
 
 
+#include <stdio.h>
+
+int main() {
+    FILE *file;
+    file = fopen("data.txt", "r"); // Open file in read mode
+
+    if (file == NULL) {
+        printf("File wasn't created or cannot be opened\n");
+    } else {
+        printf("File is opened successfully\n");
+
+        char name[50];
+        int age;
+        
+        // Read data using fscanf
+        while (fscanf(file, "%s %d", name, &age) == 2) {
+            printf("Name: %s, Age: %d\n", name, age);
+        }
+
+        fclose(file); // Close the file after reading
+    }
+
+    return 0;
+}
+
+The condition `fscanf(file, "%s %d", name, &age) == 2` is used to check if `fscanf` successfully read both a string (name) and an integer (age) from the file. Let me explain in detail:
+
+- `fscanf` returns the number of successfully matched items. In this case, `%s` matches a string and `%d` matches an integer.
+- If `fscanf` successfully reads both a string and an integer, it returns `2`, indicating that it matched both items according to the provided format string.
+- If `fscanf` encounters an error while reading or reaches the end of the file before reading both items, it returns a value less than `2`.
+
+So, `fscanf(file, "%s %d", name, &age) == 2` checks if `fscanf` successfully read both a string and an integer from the file. If it did, the loop continues; otherwise, it exits. This prevents the program from entering an infinite loop if there are no more items to read in the file.
