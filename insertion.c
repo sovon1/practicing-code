@@ -17,7 +17,7 @@ int main()
  printf("at which position do you want to insert?: ");
 scanf("%d",&pos);
 //manualy checking bound
-if (pos>n+1//you can also enter at nth postion || pos<=0)
+if (pos>n+1/*you can also enter at nth postion */ || pos<0)
 //there might be a bug for if (pos >= n || pos < 0)
 //i will deal with it later 
 
